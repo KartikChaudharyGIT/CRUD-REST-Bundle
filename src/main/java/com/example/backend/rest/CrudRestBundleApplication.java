@@ -1,4 +1,4 @@
-package com.example.backend.CRUD.REST.Bundle;
+package com.example.backend.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
