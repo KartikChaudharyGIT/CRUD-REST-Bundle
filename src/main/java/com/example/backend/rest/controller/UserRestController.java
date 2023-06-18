@@ -35,8 +35,8 @@ public class UserRestController {
 
     /* Get mapping to fetch a user */
     @GetMapping(path = "/id/{id}")
-    public User getUserById(@PathVariable("id") Integer id) throws UserDataAccessException {
-        return userService.findByUserId(id);
+    public User getUserById(@PathVariable("id") Integer userId) throws UserDataAccessException {
+        return userService.findByUserId(userId);
     }
 
     /* Get mapping to fetch all users */
@@ -46,4 +46,16 @@ public class UserRestController {
         return users;
     }
 
+    /* Delete mapping to delete user by ID */
+    @DeleteMapping(path = "delete/id/{id}")
+    public void deleteUserByID(@PathVariable("id") Integer userId) {
+        userService.deleteUserByID(userId);
+    }
+
+    /* Put mapping to update age of a specific user by ID */
+    @PutMapping(path = "update/id/{id}/age/{age}")
+    public void updateAgeByID(@RequestParam(name = "id") Integer userId, @RequestParam(name = "newAge") Integer newAge) {
+        userService.UpdateAgeByUserID(userId, newAge);
+
+    }
 }

@@ -42,5 +42,18 @@ public class UserService {
     public List<User> getUsers() {
         return (List<User>) userRepository.findAll();
     }
+
+    public void deleteUserByID(Integer userId) {
+        userRepository.deleteById(userId);
+    }
+
+    public void UpdateAgeByUserID(Integer userId, Integer newAge) {
+        Optional<User> findById = userRepository.findById(userId);
+        User user = findById.get();
+        user.setAge(newAge);
+
+        userRepository.save(user);
+    }
+
 }
 
